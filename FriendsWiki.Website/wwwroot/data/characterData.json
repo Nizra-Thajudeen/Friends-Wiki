@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "Rachel Green",
+    "Gender": "Female",
+    "Married": false,
+    "Partner": "Ross Geller",
+    "Cast": "Jennifer Aniston",
+    "Image": "https://www.pinkvilla.com/files/styles/amp_metadata_content_image_min_696px_wide/public/jennifer-anistons-character-rachel-green-in-friends-was-almost-replaced_.jpg?itok=wU2MFxXa"
+  },
+  {
+    "Name": "Monica Geller",
+    "Gender": "Female",
+    "Married": true,
+    "Partner": "Chandler Bing",
+    "Cast": "Courteney Cox",
+    "Image": "https://i1.sndcdn.com/avatars-owE05uA9mLOJvRyn-cEgYSA-t500x500.jpg"
+  },
+  {
+    "Name": "Phoebe Buffay",
+    "Gender": "Female",
+    "Married": true,
+    "Partner": "Mike Hannigan",
+    "Cast": "Lisa Kudrow",
+    "Image" : "https://i.pinimg.com/originals/14/63/c9/1463c9134102e59df42a7c21c7140590.jpg"
+  },
+  {
+    "Name": "Joey Tribbiani",
+    "Gender": "Male",
+    "Married": false,
+    "Partner": "N/A",
+    "Cast": "Matt Le Blanc",
+    "Image": "https://i.pinimg.com/originals/0b/12/5a/0b125abc9a4a013ba009f24271b30ef0.jpg"
+  },
+  {
+    "Name": "Chandler Bing",
+    "Gender": "Male",
+    "Married": true,
+    "Partner": "Monica Geller",
+    "Cast": "Matthew Perry",
+    "Image": "https://i.pinimg.com/474x/35/5f/76/355f76eadb0b1670300f8d24b82e837b.jpg"
+  },
+  {
+    "Name": "Ross Geller",
+    "Gender": "Male",
+    "Married": false,
+    "Partner": "Rachel Green",
+    "Cast": "David Schwimmer",
+    "Image": "https://www.pinkvilla.com/files/friends-26th-anniversary-life-lessons-from-ross_.jpg"
+  }
+]
