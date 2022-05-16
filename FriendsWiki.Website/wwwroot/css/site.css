@@ -23,7 +23,7 @@ body {
 
 a.navbar-brand {
     white-space: normal;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Roboto Condensed', sans-serif; 
     font-size: x-large;
     text-align: center;
     word-break: break-all;
@@ -35,9 +35,24 @@ a.navbar-brand {
     object-fit: cover;
 }
 
+
+.title-image {
+    width: 50%;
+    margin-bottom: 55px;
+    margin-top: 25px;
+    /*width: 50%;
+    height: 20vw;*/
+}
+
 .card-body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Caveat', cursive;
+    /*font-family: 'Nunito', sans-serif;*/
     background: #fbfafd;
+}
+
+.card-heading {
+    font-size: 35px;
+    text-align: center;
 }
 
 .card:hover {

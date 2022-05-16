@@ -29,5 +29,34 @@ namespace FriendsWiki.Website.Services
                     });
             }
         }
+
+        public void AddRating(string characterId, int rating)
+        {
+            var characters = GetCharacters();
+            var query = characters.First(x => x.Id == characterId);
+
+            if(query.Ratings == null)
+            {
+                query.Ratings = new int[] { rating };
+            } 
+            else
+            {
+                var ratingList = query.Ratings.ToList();
+                ratingList.Add(rating);
+                query.Ratings = ratingList.ToArray();
+            }
+
+            using(var outputStream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<Character>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    characters
+                );
+            }
+        }
     }
 }

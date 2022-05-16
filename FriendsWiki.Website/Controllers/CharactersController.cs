@@ -16,9 +16,17 @@ namespace FriendsWiki.Website.Controllers
 
         public JsonFileCharacterService CharacterService { get;} 
         
+        [HttpGet]
         public IEnumerable<Character> Get()
         {
             return CharacterService.GetCharacters();
+        }
+        [Route("Rate")]
+        [HttpGet]
+        public ActionResult Get([FromQuery] string CharacterId, [FromQuery] int Rating)
+        {
+            CharacterService.AddRating(CharacterId, Rating);
+            return Ok();
         }
     }
 }
