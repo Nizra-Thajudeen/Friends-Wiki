@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using FriendsWiki.Website.Models
+@using FriendsWiki.Website.Services
+@inject JsonFileCharacterService CharacterService
+@using FriendsWiki.Website.Pages
+
+<div class="row" style="justify-content: center">
+    @foreach (var character in CharacterService.GetCharacters())
+    {
+        <div class="card" style="width: 18rem; margin: 0px 10px 15px 10px; padding: 0px 0px 0px 0px; border-radius: 12px">
+          <img src="@character.Image" class="card-img-top" style="border-top-left-radius: 12px; border-top-right-radius: 12px" >
+          <div class="card-body" style="border-radius: 12px">
+              <h5 class="card-title card-heading">@character.Name</h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">
+                <button onclick="(event => SelectedCharacter(character.Id))"
+                    data-toggle="modal" data-target="#characterModal" class="btn btn-primary">More Info</button>
+            </small>
+           </div>
+        </div>
+    }
+</div>
+
+
+
+@code{}

@@ -60,6 +60,24 @@ a.navbar-brand {
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
 }
 
+.card-footer {
+    background: #fbfafd;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #252152;
+    border-color: #252152;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #423e70;
+        border-color: #423e70;
+        /*border-color: #5ebdff;*/
+        /*border-color: #e9a8a6;*/
+    }
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -67,4 +85,25 @@ a.navbar-brand {
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
     font-family: 'Nunito', sans-serif;
+}
+
+
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.modal .card-img-top {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
