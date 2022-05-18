@@ -14,8 +14,8 @@
           </div>
           <div class="card-footer">
             <small class="text-muted">
-                <button onclick="(event => SelectedCharacter(character.Id))"
-                    data-toggle="modal" data-target="#characterModal" class="btn btn-primary">More Info</button>
+                <button @onclick="(e => SelectedCharacter(character.Id))"
+                    type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#characterModal">More Info</button>
             </small>
            </div>
         </div>
@@ -24,4 +24,95 @@
 
 
 
-@code{}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+@if (selectedCharacter != null)
+{
+    <div class="modal fade" id="characterModal" tabindex="-1" aria-labelledby="characterModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="characterName">@selectedCharacter.Name</h5>
+                    <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+            <div class="card-img-top" style="background-image: url('@selectedCharacter.Image')"></div>
+            <div class="card-body">
+                <p class="card-text">@selectedCharacter.Gender</p>
+            </div>
+        </div>
+     </div>
+      <div class="modal-footer">
+            @if(voteCount == 0)
+            {
+                <span>Be the first to vote!</span>
+            }
+            else
+            {
+                <span>@voteCount @voteLabel</span>
+            }
+
+            @for (int i = 0; i < 5; i++)
+            {
+                var currentStar = i+1;
+                if(i <= currentRating)
+                {
+                    <span class="fa-star fa checked" @onclick="(e => SubmitRating(currentStar))"></span>
+                }
+                else
+                {
+                    <span class="fa-star fa" @onclick="(e => SubmitRating(currentStar))"></span>
+                }
+            }
+
+        </div>
+    </div>
+  </div>
+</div>
+
+}
+
+
+@code {
+    Character selectedCharacter;
+    string selectedCharacterId;
+
+    void SelectedCharacter(string characterId)
+    {
+        selectedCharacterId = characterId;
+        selectedCharacter = CharacterService.GetCharacters().First(x => x.Id == characterId);
+        GetCurrentRating();
+    }
+
+    int currentRating = 0;
+    int voteCount = 0;
+    string voteLabel;
+
+    void GetCurrentRating()
+    {
+        if (selectedCharacter.Ratings == null)
+        {
+            currentRating = 0;
+            voteCount = 0;
+        }
+        else
+        {
+            voteCount = selectedCharacter.Ratings.Count();
+            voteLabel = voteCount > 1 ? "Votes" : "Vote";
+            currentRating = selectedCharacter.Ratings.Sum() / voteCount;
+        }
+
+        System.Console.WriteLine($"Current rating for {selectedCharacter.Id}: {currentRating}");
+    }
+
+    void SubmitRating(int rating)
+    {
+        System.Console.WriteLine($"Rating received for {selectedCharacter.Id}: {rating}");
+        CharacterService.AddRating(selectedCharacterId, rating);
+        SelectedCharacter(selectedCharacterId);
+    }
+}
